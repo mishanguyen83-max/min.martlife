@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Min MartLife — Nhà thông minh, sống tiện nghi hơn | Đồ gia dụng &amp; SmartHome</title>
+<meta name="description" content="Min MartLife — Website demo giới thiệu đồ gia dụng điện tử và thiết bị SmartHome: camera WiFi, khóa vân tay, đèn thông minh, robot hút bụi, nồi chiên không dầu và combo nhà thông minh. Đặt hàng qua Facebook. Giá trên web là giá demo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Min MartLife — Nhà thông minh, sống tiện nghi hơn">
+<meta property="og:description" content="Đồ gia dụng điện tử &amp; thiết bị SmartHome. Xem sản phẩm demo, nhắn Facebook để được tư vấn và báo giá chính xác.">
+<meta property="og:site_name" content="Min MartLife">
+<meta name="theme-color" content="#0F172A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { primary:'#1E293B', secondary:'#334155', accent:'#22C55E', ink:'#0F172A', card:'#1B2336', muted:'#272F42', mutedfg:'#94A3B8', borderc:'#475569', fg:'#F8FAFC' },
+  fontFamily: { sans: ['"Plus Jakarta Sans"','system-ui','sans-serif'] }
+}}};
+</script>
+<style>
+:root{
+  --color-primary:#1E293B; --color-on-primary:#FFFFFF; --color-secondary:#334155; --color-accent:#22C55E;
+  --color-on-accent:#0F172A; --color-background:#0F172A; --color-foreground:#F8FAFC; --color-card:#1B2336;
+  --color-muted:#272F42; --color-muted-foreground:#94A3B8; --color-border:#475569; --color-destructive:#EF4444;
+  --space-xs:4px; --space-sm:8px; --space-md:16px; --space-lg:24px; --space-xl:32px; --space-2xl:48px; --space-3xl:64px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05); --shadow-md:0 4px 6px rgba(0,0,0,.1); --shadow-lg:0 10px 15px rgba(0,0,0,.1); --shadow-xl:0 20px 25px rgba(0,0,0,.15);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--color-background);color:var(--color-foreground);font-family:"Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:#22C55E;color:#0F172A}
+a,button,input,select,summary{transition:all 200ms ease}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #22C55E;outline-offset:2px;border-radius:8px}
+button,a{cursor:pointer}
+.btn-primary{background:#22C55E;color:#0F172A;padding:12px 24px;border-radius:8px;font-weight:700;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:#F8FAFC;border:2px solid #475569;padding:12px 24px;border-radius:8px;font-weight:600;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-secondary:hover{border-color:#22C55E;color:#22C55E}
+.glass{background:rgba(27,35,54,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.14)}
+.glass-soft{background:rgba(255,255,255,.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14)}
+.card{background:var(--color-card);border:1px solid rgba(255,255,255,.08);border-radius:16px;box-shadow:var(--shadow-md)}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.chip{min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid #475569;color:#CBD5E1;font-weight:600;background:rgba(255,255,255,.04)}
+.chip:hover{border-color:#22C55E;color:#fff}
+.chip[aria-pressed="true"]{background:#22C55E;color:#0F172A;border-color:#22C55E}
+.input{padding:12px 16px;border:1px solid #475569;border-radius:10px;font-size:16px;background:#1B2336;color:#F8FAFC;min-height:44px;width:100%}
+.input::placeholder{color:#94A3B8}
+.input:focus{border-color:#22C55E;outline:none;box-shadow:0 0 0 3px rgba(34,197,94,.25)}
+.hero-grad{background:radial-gradient(900px 500px at 85% -10%,rgba(34,197,94,.28),transparent 60%),radial-gradient(700px 420px at 0% 20%,rgba(56,130,246,.22),transparent 55%),#0F172A}
+.product-visual{background:linear-gradient(135deg,#1E293B 0%,#0F172A 55%,#14532D 130%);border-bottom:1px solid rgba(255,255,255,.08)}
+.reveal{opacity:0;transform:translateY(16px)}
+.reveal.visible{opacity:1;transform:none;transition:opacity .4s ease,transform .4s ease}
+.modal-overlay{background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq[open ] .faq-chev{transform:rotate(180deg)}
+.faq-chev{transition:transform 200ms ease}
+.star{color:#FACC15}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+@media (max-width:640px){ .hero-title{font-size:2rem!important;line-height:1.15} }
+</style>
+</head>
+<body>
+<a href="#san-pham" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#22C55E] focus:text-[#0F172A] focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold">Bỏ qua tới danh sách sản phẩm</a>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 glass">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between gap-3 h-[72px]">
+      <a href="#top" class="flex items-center gap-3 shrink-0" aria-label="Min MartLife — về đầu trang">
+        <span class="w-11 h-11 rounded-xl bg-[#22C55E] text-[#0F172A] flex items-center justify-center" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block font-extrabold text-lg tracking-tight">MIN <span class="text-[#22C55E]">MartLife</span></span>
+          <span class="block text-xs text-[#94A3B8]">Gia dụng &amp; SmartHome</span>
+        </span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1 text-[15px] font-medium" aria-label="Điều hướng chính">
+        <a class="px-3 py-2 rounded-lg hover:text-[#22C55E]" href="#san-pham">Sản phẩm</a>
+        <a class="px-3 py-2 rounded-lg hover:text-[#22C55E]" href="#san-pham" data-nav-cat="smarthome">SmartHome</a>
+        <a class="px-3 py-2 rounded-lg hover:text-[#22C55E]" href="#san-pham" data-nav-cat="giadung">Gia dụng</a>
+        <a class="px-3 py-2 rounded-lg hover:text-[#22C55E]" href="#combo">Combo</a>
+        <a class="px-3 py-2 rounded-lg hover:text-[#22C55E]" href="#cach-dat-hang">Cách đặt hàng</a>
+        <a class="px-3 py-2 rounded-lg hover:text-[#22C55E]" href="#faq">FAQ</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-3">
+        <label class="sr-only" for="search-desktop">Tìm sản phẩm</label>
+        <input id="search-desktop" class="input !w-52 lg:!w-60" type="search" placeholder="Tìm: camera, robot hút bụi…" autocomplete="off">
+        <a class="btn-primary !py-2.5 !px-4 text-sm whitespace-nowrap" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H8v3h2.5v7h3Z"/></svg>
+          Nhắn Facebook</a>
+      </div>
+      <button id="menu-btn" class="lg:hidden w-11 h-11 rounded-lg border border-[#475569] flex items-center justify-center" aria-expanded="false" aria-controls="mobile-menu" aria-label="Mở menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 px-4 py-4 space-y-1" aria-label="Menu di động">
+    <a class="block px-3 py-3 rounded-lg hover:bg-white/5 font-medium" href="#san-pham">Sản phẩm</a>
+    <a class="block px-3 py-3 rounded-lg hover:bg-white/5 font-medium" href="#san-pham" data-nav-cat="smarthome">SmartHome</a>
+    <a class="block px-3 py-3 rounded-lg hover:bg-white/5 font-medium" href="#san-pham" data-nav-cat="giadung">Gia dụng</a>
+    <a class="block px-3 py-3 rounded-lg hover:bg-white/5 font-medium" href="#combo">Combo</a>
+    <a class="block px-3 py-3 rounded-lg hover:bg-white/5 font-medium" href="#cach-dat-hang">Cách đặt hàng</a>
+    <a class="block px-3 py-3 rounded-lg hover:bg-white/5 font-medium" href="#faq">FAQ</a>
+    <label class="sr-only" for="search-mobile">Tìm sản phẩm</label>
+    <input id="search-mobile" class="input mt-2" type="search" placeholder="Tìm sản phẩm…" autocomplete="off">
+    <a class="btn-primary w-full mt-3" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">Nhắn Facebook</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero-grad">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-20 lg:pb-24 grid lg:grid-cols-2 gap-10 items-center">
+    <div class="reveal visible">
+      <p class="inline-flex items-center gap-2 glass-soft rounded-full px-4 py-2 text-sm font-semibold text-[#BBF7D0]">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8L12 2Z"/></svg>
+        Website demo — Đặt hàng qua Facebook
+      </p>
+      <h1 class="hero-title mt-5 text-4xl sm:text-5xl xl:text-[3.4rem] font-extrabold leading-[1.12] tracking-tight">Nhà thông minh,<br>sống <span class="text-[#22C55E]">tiện nghi hơn</span></h1>
+      <p class="mt-5 text-lg text-[#CBD5E1] leading-relaxed max-w-xl">Min MartLife giới thiệu đồ gia dụng điện tử và thiết bị SmartHome giúp nhà bạn gọn hơn, an toàn hơn và rảnh tay hơn — từ camera, khóa vân tay tới robot hút bụi và nồi chiên không dầu.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#san-pham" class="btn-primary">Xem sản phẩm
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener" class="btn-secondary">Nhắn Facebook tư vấn</a>
+      </div>
+      <p class="mt-4 text-sm text-[#94A3B8]">Giá trên trang là <strong class="text-[#F8FAFC]">giá demo</strong> — inbox Facebook để được báo giá chính xác.</p>
+      <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="glass-soft rounded-2xl p-4"><dt class="text-xs text-[#94A3B8] font-medium">Cam kết</dt><dd class="mt-1 font-bold">Hàng chính hãng <span class="text-xs font-medium text-[#94A3B8]">(demo)</span></dd></div>
+        <div class="glass-soft rounded-2xl p-4"><dt class="text-xs text-[#94A3B8] font-medium">Bảo hành</dt><dd class="mt-1 font-bold">Theo hãng <span class="text-xs font-medium text-[#94A3B8]">(demo)</span></dd></div>
+        <div class="glass-soft rounded-2xl p-4"><dt class="text-xs text-[#94A3B8] font-medium">Hỗ trợ</dt><dd class="mt-1 font-bold">Tư vấn lắp đặt</dd></div>
+        <div class="glass-soft rounded-2xl p-4"><dt class="text-xs text-[#94A3B8] font-medium">Giao hàng</dt><dd class="mt-1 font-bold">Nhanh, đóng gói kỹ</dd></div>
+      </dl>
+    </div>
+    <div class="reveal visible" aria-hidden="true">
+      <!-- SVG smart-home illustration: house, devices, no external image -->
+      <svg viewBox="0 0 520 420" class="w-full h-auto" role="img" aria-label="Minh họa ngôi nhà thông minh với camera, đèn, khóa cửa và loa thông minh">
+        <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22C55E" stop-opacity=".35"/><stop offset="1" stop-color="#38BDF8" stop-opacity=".12"/></linearGradient></defs>
+        <rect x="20" y="20" width="480" height="380" rx="28" fill="url(#hg)" stroke="rgba(255,255,255,.14)"/>
+        <circle cx="430" cy="70" r="34" fill="#22C55E" opacity=".18"/><circle cx="430" cy="70" r="18" fill="#FACC15" opacity=".9"/>
+        <path d="M110 220 260 110l150 110" fill="none" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="140" y="210" width="240" height="140" rx="14" fill="#1B2336" stroke="rgba(255,255,255,.2)"/>
+        <rect x="225" y="270" width="70" height="80" rx="10" fill="#22C55E" opacity=".85"/>
+        <circle cx="282" cy="312" r="4" fill="#0F172A"/>
+        <rect x="165" y="235" width="52" height="52" rx="10" fill="#38BDF8" opacity=".35" stroke="#38BDF8"/>
+        <rect x="303" y="235" width="52" height="52" rx="10" fill="#FACC15" opacity=".3" stroke="#FACC15"/>
+        <g font-family="sans-serif" font-size="13" fill="#F8FAFC">
+          <text x="60" y="392">Camera WiFi</text><text x="205" y="392">Khóa vân tay</text><text x="360" y="392">Đèn &amp; loa thông minh</text>
+        </g>
+        <g stroke="#22C55E" stroke-width="2" fill="none" stroke-linecap="round"><path d="M80 90h40M80 105h28"/><circle cx="72" cy="98" r="16" stroke="#F8FAFC"/><circle cx="72" cy="98" r="6" fill="#22C55E" stroke="none"/></g>
+        <rect x="380" y="150" width="86" height="56" rx="12" fill="#1B2336" stroke="rgba(255,255,255,.25)"/><circle cx="402" cy="178" r="10" fill="none" stroke="#22C55E" stroke-width="3"/><path d="M420 170h30M420 182h22" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <p class="sr-only">Minh họa: ngôi nhà thông minh với camera WiFi, khóa vân tay, đèn và loa thông minh.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section id="san-pham" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20 scroll-mt-24">
+  <div class="reveal flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <p class="text-sm font-bold tracking-widest uppercase text-[#22C55E]">Danh mục sản phẩm</p>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Sản phẩm nổi bật</h2>
+      <p class="mt-2 text-[#94A3B8] max-w-2xl">12 sản phẩm demo — 6 SmartHome và 6 gia dụng điện tử. Lọc theo nhu cầu, bấm “Xem chi tiết” để xem thông số, rồi đặt qua Facebook.</p>
+    </div>
+    <p class="text-sm text-[#94A3B8]"><span id="result-count" aria-live="polite">12 sản phẩm</span> · <span class="text-[#FACC15] font-semibold">Giá demo</span> — inbox Facebook để báo giá chính xác</p>
+  </div>
+
+  <div class="reveal mt-8 flex flex-wrap items-center gap-2" role="group" aria-label="Lọc theo danh mục">
+    <button class="chip" data-filter="all" aria-pressed="true">Tất cả</button>
+    <button class="chip" data-filter="smarthome" aria-pressed="false">SmartHome</button>
+    <button class="chip" data-filter="giadung" aria-pressed="false">Gia dụng điện tử</button>
+    <button class="chip" data-filter="bestseller" aria-pressed="false">Bán chạy (demo)</button>
+    <button class="chip" data-filter="new" aria-pressed="false">Mới về</button>
+    <label class="sr-only" for="sort">Sắp xếp sản phẩm</label>
+    <select id="sort" class="input !w-auto ml-auto">
+      <option value="featured">Sắp xếp: Nổi bật</option>
+      <option value="newest">Mới nhất</option>
+      <option value="price-asc">Giá demo: tăng dần</option>
+      <option value="price-desc">Giá demo: giảm dần</option>
+      <option value="rating">Bán chạy (demo)</option>
+    </select>
+  </div>
+  <div class="mt-4 md:hidden">
+    <label class="sr-only" for="search-inline">Tìm sản phẩm</label>
+    <input id="search-inline" class="input" type="search" placeholder="Tìm sản phẩm: camera, robot hút bụi…" autocomplete="off">
+  </div>
+
+  <div id="product-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" aria-live="polite"></div>
+  <p id="empty-state" class="hidden mt-8 text-center text-[#94A3B8] glass-soft rounded-2xl p-8">Không tìm thấy sản phẩm phù hợp. Thử từ khóa khác, hoặc <a class="text-[#22C55E] font-semibold underline" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">nhắn Facebook</a> để được tư vấn.</p>
+  <p class="mt-6 text-sm text-[#94A3B8]">Lưu ý: tên, thông số và giá trên trang là <strong class="text-[#F8FAFC]">nội dung demo</strong> để xem trước giao diện. Shop sẽ xác nhận mẫu mã, giá và tình trạng hàng qua Facebook trước khi giao.</p>
+</section>
+
+<!-- ============ COMBOS ============ -->
+<section id="combo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 lg:pb-20 scroll-mt-24">
+  <div class="reveal">
+    <p class="text-sm font-bold tracking-widest uppercase text-[#22C55E]">Combo SmartHome</p>
+    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Combo trọn gói, lắp là dùng</h2>
+    <p class="mt-2 text-[#94A3B8] max-w-2xl">3 combo demo theo không gian sống. Giá combo là giá demo — inbox Facebook để báo giá theo diện tích và nhu cầu thực tế.</p>
+  </div>
+  <div class="mt-8 grid md:grid-cols-3 gap-5">
+    <article class="card reveal p-6 flex flex-col">
+      <span class="self-start text-xs font-bold bg-[#22C55E] text-[#0F172A] px-3 py-1 rounded-full">Tiết kiệm demo</span>
+      <h3 class="mt-4 text-xl font-bold">Combo Căn hộ 1PN</h3>
+      <p class="mt-1 text-sm text-[#94A3B8]">Cho căn hộ nhỏ, ở một mình hoặc hai người.</p>
+      <ul class="mt-4 space-y-2 text-sm text-[#CBD5E1] flex-1">
+        <li>• Khóa cửa vân tay</li><li>• Camera trong nhà WiFi 2K</li><li>• 2 công tắc cảm ứng WiFi</li><li>• 2 đèn LED thông minh RGB</li><li>• Ổ cắm thông minh đo điện</li>
+      </ul>
+      <p class="mt-5"><span class="text-2xl font-extrabold">4.990.000đ</span> <span class="text-sm text-[#94A3B8] line-through">6.490.000đ</span> <span class="ml-1 text-xs font-bold bg-amber-400/20 text-amber-300 px-2 py-1 rounded-full">Giá demo</span></p>
+      <a class="btn-primary w-full mt-4" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">Đặt combo qua Facebook</a>
+    </article>
+    <article class="card reveal p-6 flex flex-col !border-[#22C55E]/60 relative">
+      <span class="self-start text-xs font-bold bg-[#22C55E] text-[#0F172A] px-3 py-1 rounded-full">Được chọn nhiều (demo)</span>
+      <h3 class="mt-4 text-xl font-bold">Combo Nhà phố</h3>
+      <p class="mt-1 text-sm text-[#94A3B8]">Cho nhà 2–3 tầng, gia đình có trẻ nhỏ.</p>
+      <ul class="mt-4 space-y-2 text-sm text-[#CBD5E1] flex-1">
+        <li>• Khóa cửa vân tay + camera trong nhà</li><li>• 4 công tắc cảm ứng WiFi</li><li>• 4 đèn LED thông minh RGB</li><li>• Loa thông minh trợ lý ảo</li><li>• Robot hút bụi lau nhà</li><li>• 2 ổ cắm thông minh đo điện</li>
+      </ul>
+      <p class="mt-5"><span class="text-2xl font-extrabold">12.900.000đ</span> <span class="text-sm text-[#94A3B8] line-through">15.900.000đ</span> <span class="ml-1 text-xs font-bold bg-amber-400/20 text-amber-300 px-2 py-1 rounded-full">Giá demo</span></p>
+      <a class="btn-primary w-full mt-4" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">Đặt combo qua Facebook</a>
+    </article>
+    <article class="card reveal p-6 flex flex-col">
+      <span class="self-start text-xs font-bold bg-white/10 text-white px-3 py-1 rounded-full">Văn phòng</span>
+      <h3 class="mt-4 text-xl font-bold">Combo Văn phòng nhỏ</h3>
+      <p class="mt-1 text-sm text-[#94A3B8]">Cho văn phòng 5–10 người, không gian mở.</p>
+      <ul class="mt-4 space-y-2 text-sm text-[#CBD5E1] flex-1">
+        <li>• Khóa cửa vân tay</li><li>• Camera trong nhà WiFi 2K</li><li>• Máy lọc không khí HEPA</li><li>• 4 đèn LED thông minh RGB</li><li>• Quạt tháp điều hòa không khí</li>
+      </ul>
+      <p class="mt-5"><span class="text-2xl font-extrabold">9.490.000đ</span> <span class="text-sm text-[#94A3B8] line-through">11.800.000đ</span> <span class="ml-1 text-xs font-bold bg-amber-400/20 text-amber-300 px-2 py-1 rounded-full">Giá demo</span></p>
+      <a class="btn-primary w-full mt-4" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">Đặt combo qua Facebook</a>
+    </article>
+  </div>
+</section>
+
+<!-- ============ HOW TO ORDER + WHY ============ -->
+<section id="cach-dat-hang" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 lg:pb-20 scroll-mt-24">
+  <div class="grid lg:grid-cols-2 gap-10">
+    <div class="reveal">
+      <p class="text-sm font-bold tracking-widest uppercase text-[#22C55E]">Cách đặt hàng</p>
+      <h2 class="mt-2 text-3xl font-extrabold tracking-tight">Đặt hàng chỉ với 3 bước</h2>
+      <ol class="mt-6 space-y-4">
+        <li class="glass-soft rounded-2xl p-5 flex gap-4"><span class="w-11 h-11 shrink-0 rounded-full bg-[#22C55E] text-[#0F172A] font-extrabold flex items-center justify-center" aria-hidden="true">1</span><div><h3 class="font-bold">Chọn sản phẩm</h3><p class="text-sm text-[#94A3B8] mt-1">Xem sản phẩm và combo trên trang, ghi lại tên mẫu bạn quan tâm.</p></div></li>
+        <li class="glass-soft rounded-2xl p-5 flex gap-4"><span class="w-11 h-11 shrink-0 rounded-full bg-[#22C55E] text-[#0F172A] font-extrabold flex items-center justify-center" aria-hidden="true">2</span><div><h3 class="font-bold">Nhắn Facebook</h3><p class="text-sm text-[#94A3B8] mt-1">Bấm “Đặt qua Facebook” hoặc “Nhắn Facebook” — tin nhắn sẽ mở trang Facebook của shop.</p></div></li>
+        <li class="glass-soft rounded-2xl p-5 flex gap-4"><span class="w-11 h-11 shrink-0 rounded-full bg-[#22C55E] text-[#0F172A] font-extrabold flex items-center justify-center" aria-hidden="true">3</span><div><h3 class="font-bold">Tư vấn, báo giá, giao hàng</h3><p class="text-sm text-[#94A3B8] mt-1">Shop xác nhận mẫu mã, báo giá chính xác, hẹn lắp đặt và giao hàng.</p></div></li>
+      </ol>
+      <a class="btn-primary mt-6" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">Nhắn Facebook ngay</a>
+    </div>
+    <div class="reveal">
+      <p class="text-sm font-bold tracking-widest uppercase text-[#22C55E]">Vì sao chọn Min</p>
+      <h2 class="mt-2 text-3xl font-extrabold tracking-tight">Vì sao chọn Min MartLife?</h2>
+      <div class="mt-6 grid sm:grid-cols-2 gap-4">
+        <div class="card p-5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><h3 class="mt-3 font-bold">Hàng chính hãng (demo)</h3><p class="text-sm text-[#94A3B8] mt-1">Chọn sản phẩm có nguồn gốc rõ ràng, bảo hành theo hãng.</p></div>
+        <div class="card p-5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4L14 13l-3-3 3.7-3.7Z"/></svg><h3 class="mt-3 font-bold">Tư vấn lắp đặt</h3><p class="text-sm text-[#94A3B8] mt-1">Hướng dẫn kết nối app, hẹn giờ, điều khiển bằng giọng nói.</p></div>
+        <div class="card p-5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><h3 class="mt-3 font-bold">Giao nhanh, đóng gói kỹ</h3><p class="text-sm text-[#94A3B8] mt-1">Kiểm tra hàng trước khi nhận theo hướng dẫn của shop qua Facebook.</p></div>
+        <div class="card p-5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg><h3 class="mt-3 font-bold">Hỗ trợ sau bán</h3><p class="text-sm text-[#94A3B8] mt-1">Nhắn Facebook khi cần hỗ trợ sử dụng, cài đặt lại hay bảo hành.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24 scroll-mt-24">
+  <div class="reveal text-center">
+    <p class="text-sm font-bold tracking-widest uppercase text-[#22C55E]">Câu hỏi thường gặp</p>
+    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Giải đáp nhanh</h2>
+    <p class="mt-2 text-[#94A3B8]">Câu trả lời dưới đây là thông tin chung (demo). Shop sẽ xác nhận chính xác qua Facebook cho từng đơn hàng.</p>
+  </div>
+  <div class="mt-8 space-y-3">
+    <details class="faq glass-soft rounded-2xl p-5 reveal"><summary class="flex justify-between items-center gap-4 font-bold min-h-[44px]">Sản phẩm được bảo hành như thế nào?<svg class="faq-chev shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p class="mt-3 text-sm text-[#CBD5E1] leading-relaxed">Sản phẩm được bảo hành theo chính sách của hãng (thời gian và điều kiện tùy từng mẫu). Khi đặt hàng qua Facebook, shop sẽ ghi rõ thời gian bảo hành cho mẫu bạn chọn.</p></details>
+    <details class="faq glass-soft rounded-2xl p-5 reveal"><summary class="flex justify-between items-center gap-4 font-bold min-h-[44px]">Shop có hỗ trợ lắp đặt không?<svg class="faq-chev shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p class="mt-3 text-sm text-[#CBD5E1] leading-relaxed">Có — shop tư vấn và hướng dẫn lắp đặt, kết nối app cho các thiết bị SmartHome. Với khóa cửa hay công tắc âm tường, shop sẽ tư vấn điều kiện lắp đặt trước khi giao.</p></details>
+    <details class="faq glass-soft rounded-2xl p-5 reveal"><summary class="flex justify-between items-center gap-4 font-bold min-h-[44px]">Giao hàng trong bao lâu?<svg class="faq-chev shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p class="mt-3 text-sm text-[#CBD5E1] leading-relaxed">Thời gian giao tùy kho hàng và địa chỉ nhận. Shop sẽ báo thời gian dự kiến và phí giao (nếu có) khi xác nhận đơn qua Facebook.</p></details>
+    <details class="faq glass-soft rounded-2xl p-5 reveal"><summary class="flex justify-between items-center gap-4 font-bold min-h-[44px]">Thanh toán bằng hình thức nào?<svg class="faq-chev shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p class="mt-3 text-sm text-[#CBD5E1] leading-relaxed">Hình thức thanh toán được thỏa thuận khi xác nhận đơn qua Facebook (ví dụ: chuyển khoản hoặc thanh toán khi nhận hàng, tùy đơn). Vui lòng chỉ thanh toán theo hướng dẫn chính thức từ trang Facebook của shop.</p></details>
+    <details class="faq glass-soft rounded-2xl p-5 reveal"><summary class="flex justify-between items-center gap-4 font-bold min-h-[44px]">Đổi trả khi sản phẩm lỗi thì sao?<svg class="faq-chev shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p class="mt-3 text-sm text-[#CBD5E1] leading-relaxed">Nếu sản phẩm lỗi do nhà sản xuất trong thời gian bảo hành, shop hỗ trợ đổi hoặc bảo hành theo chính sách hãng. Hãy giữ hộp, phụ kiện và nhắn Facebook kèm hình ảnh/video lỗi để được xử lý nhanh nhất.</p></details>
+  </div>
+  <div class="reveal mt-10 glass rounded-3xl p-8 text-center">
+    <h3 class="text-2xl font-extrabold">Chưa tìm thấy câu trả lời?</h3>
+    <p class="mt-2 text-[#94A3B8]">Nhắn trực tiếp cho shop trên Facebook — shop sẽ tư vấn mẫu phù hợp với nhà của bạn.</p>
+    <a class="btn-primary mt-5" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">Nhắn Facebook — Min Smart Life</a>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-3 gap-8">
+    <div>
+      <p class="font-extrabold text-lg">MIN <span class="text-[#22C55E]">MartLife</span></p>
+      <p class="mt-2 text-sm text-[#94A3B8] leading-relaxed">Đồ gia dụng điện tử &amp; thiết bị SmartHome — nhà thông minh, sống tiện nghi hơn.</p>
+      <p class="mt-3 text-sm text-[#94A3B8]">Facebook: <a class="text-[#22C55E] font-semibold underline" href="https://www.facebook.com/profile.php?id=61596530125836" target="_blank" rel="noopener">Min Smart Life</a></p>
+    </div>
+    <nav aria-label="Liên kết nhanh">
+      <p class="font-bold">Khám phá</p>
+      <ul class="mt-3 space-y-2 text-sm text-[#94A3B8]">
+        <li><a class="hover:text-white" href="#san-pham">Sản phẩm</a></li>
+        <li><a class="hover:text-white" href="#combo">Combo SmartHome</a></li>
+        <li><a class="hover:text-white" href="#cach-dat-hang">Cách đặt hàng</a></li>
+        <li><a class="hover:text-white" href="#faq">Câu hỏi thường gặp</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p class="font-bold">Lưu ý</p>
+      <p class="mt-3 text-sm text-[#94A3B8] leading-relaxed">Website demo — chưa có giỏ hàng, đặt hàng qua Facebook. Giá, thông số và tình trạng hàng trên trang là nội dung demo; vui lòng inbox Facebook để được báo giá chính xác.</p>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-5 text-center text-sm text-[#94A3B8] px-4">© 2026 Min MartLife. Website demo — mọi nội dung sản phẩm và giá chỉ mang tính minh họa.</div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div id="modal-overlay" class="modal-overlay fixed inset-0 z-[90] hidden items-center justify-center p-4" role="presentation">
+  <div id="modal" class="bg-[#1B2336] border border-white/15 rounded-2xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="flex items-start justify-between gap-4">
+      <h3 id="modal-title" class="text-xl font-extrabold leading-snug"></h3>
+      <button id="modal-close" class="w-11 h-11 shrink-0 rounded-lg border border-[#475569] flex items-center justify-center" aria-label="Đóng chi tiết sản phẩm">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="modal-body" class="mt-4"></div>
+  </div>
+</div>
+
+<button id="back-top" class="fixed bottom-5 right-5 z-40 w-11 h-11 rounded-full bg-[#22C55E] text-[#0F172A] shadow-lg hidden items-center justify-center" aria-label="Về đầu trang">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+const FB = "https://www.facebook.com/profile.php?id=61596530125836";
+const fmt = n => n.toLocaleString("vi-VN") + "đ";
+const ICONS = {
+  camera:'<rect x="2" y="7" width="13" height="11" rx="2"/><path d="M15 10.5 22 7v10l-7-3.5"/><circle cx="8.5" cy="12.5" r="2.5"/>',
+  lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.2"/>',
+  switch:'<rect x="4" y="3" width="16" height="18" rx="3"/><circle cx="12" cy="9" r="2.5"/><path d="M9 15.5h6"/>',
+  bulb:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.8.6 1.5 1.4 1.5 2.1h4c0-.7.7-1.5 1.5-2.1A6 6 0 0 0 12 3Z"/>',
+  plug:'<path d="M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0V7Z"/><path d="M12 16v5"/>',
+  speaker:'<rect x="7" y="3" width="10" height="18" rx="5"/><circle cx="12" cy="9" r="1.5"/><circle cx="12" cy="14" r="1.5"/>',
+  robot:'<rect x="3" y="10" width="18" height="8" rx="4"/><circle cx="8" cy="14" r="1.4"/><circle cx="16" cy="14" r="1.4"/><path d="M12 10V6M9 6h6"/>',
+  fryer:'<path d="M5 9h14l-1.5 9a2 2 0 0 1-2 1.7h-7A2 2 0 0 1 6.5 18L5 9Z"/><path d="M8 9a4 4 0 0 1 8 0M9 13.5h6"/>',
+  purifier:'<rect x="5" y="4" width="14" height="16" rx="3"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/>',
+  fan:'<circle cx="12" cy="12" r="1.8"/><path d="M12 10.2C12 6 14 3.5 17 3.5c1 2.5-.5 5.5-3.5 6.3M13.8 12c4.2 0 6.7-2 6.7-5-2.5-1-5.5.5-6.3 3.5M12 13.8C12 18 10 20.5 7 20.5c-1-2.5.5-5.5 3.5-6.3M10.2 12C6 12 3.5 14 3.5 17c2.5 1 5.5-.5 6.3-3.5"/>',
+  kettle:'<path d="M4 10h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-5Z"/><path d="M17 11h2a2.5 2.5 0 0 1 0 5h-2M9 10V6h5"/>',
+  cooktop:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="12" r="3.2"/><circle cx="15.5" cy="12" r="3.2"/>'
+};
+function icon(name, size){
+  size = size || 56;
+  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[name]+'</svg>';
+}
+/* PRODUCTS — DEMO ONLY. Edit this array to change products. Prices are demo prices. */
+const PRODUCTS = [
+ {id:1, name:"Camera trong nhà WiFi 2K", cat:"smarthome", catLabel:"SmartHome", benefit:"Quan sát nhà từ xa, đàm thoại 2 chiều, phát hiện chuyển động.", specs:["Độ phân giải 2K, góc rộng","Đàm thoại 2 chiều, hồng ngoại ban đêm","Phát hiện chuyển động, cảnh báo qua app"], price:890000, old:1190000, badge:"Bán chạy", rating:4.8, sold:120, isNew:false, compat:"Google Home, Alexa, Apple HomeKit (demo)", icon:"camera"},
+ {id:2, name:"Khóa cửa vân tay", cat:"smarthome", catLabel:"SmartHome", benefit:"Mở cửa bằng vân tay, mã số, thẻ — không lo quên chìa.", specs:["Mở bằng vân tay, mã PIN, thẻ từ","Chốt an toàn, cảnh báo phá khóa","Dùng pin, có cổng sạc dự phòng"], price:2990000, old:3590000, badge:"Bán chạy", rating:4.9, sold:86, isNew:false, compat:"Google Home, Alexa (demo)", icon:"lock"},
+ {id:3, name:"Công tắc cảm ứng WiFi", cat:"smarthome", catLabel:"SmartHome", benefit:"Bật/tắt đèn từ xa, hẹn giờ, chạm nhẹ là sáng.", specs:["Điều khiển qua app WiFi","Hẹn giờ, đếm ngược","Mặt kính cảm ứng, lắp âm tường"], price:349000, old:490000, badge:"Giảm giá demo", rating:4.7, sold:210, isNew:false, compat:"Google Home, Alexa, Apple HomeKit (demo)", icon:"switch"},
+ {id:4, name:"Đèn LED thông minh RGB", cat:"smarthome", catLabel:"SmartHome", benefit:"16 triệu màu, đổi màu theo tâm trạng, hẹn giờ tắt.", specs:["16 triệu màu, chỉnh độ sáng","Hẹn giờ, đồng bộ nhạc (demo)","Tiết kiệm điện, tuổi thọ cao"], price:199000, old:299000, badge:"Giảm giá demo", rating:4.6, sold:340, isNew:false, compat:"Google Home, Alexa, Apple HomeKit (demo)", icon:"bulb"},
+ {id:5, name:"Ổ cắm thông minh đo điện", cat:"smarthome", catLabel:"SmartHome", benefit:"Bật/tắt thiết bị từ xa, theo dõi điện năng tiêu thụ.", specs:["Đo điện năng theo ngày/tháng","Hẹn giờ, điều khiển qua app","Chống quá tải (demo)"], price:259000, old:359000, badge:"Mới", rating:4.7, sold:95, isNew:true, compat:"Google Home, Alexa (demo)", icon:"plug"},
+ {id:6, name:"Loa thông minh trợ lý ảo", cat:"smarthome", catLabel:"SmartHome", benefit:"Nghe nhạc, hỏi thời tiết, điều khiển nhà bằng giọng nói.", specs:["Trợ lý ảo, điều khiển giọng nói","Âm thanh 360° (demo)","Kết nối WiFi, Bluetooth"], price:1290000, old:1690000, badge:"Mới", rating:4.8, sold:64, isNew:true, compat:"Google Home, Alexa (demo)", icon:"speaker"},
+ {id:7, name:"Robot hút bụi lau nhà", cat:"giadung", catLabel:"Gia dụng điện tử", benefit:"Hút bụi + lau nhà tự động, về sạc khi hết pin.", specs:["Hút bụi và lau nhà 2 trong 1","Cảm biến chống rơi, tránh vật cản","Hẹn giờ dọn qua app"], price:5490000, old:6990000, badge:"Bán chạy", rating:4.8, sold:58, isNew:false, compat:"Google Home, Alexa (demo)", icon:"robot"},
+ {id:8, name:"Nồi chiên không dầu", cat:"giadung", catLabel:"Gia dụng điện tử", benefit:"Chiên giòn ít dầu, nấu nhanh, vệ sinh dễ dàng.", specs:["Dung tích lớn cho gia đình","Chỉnh nhiệt độ, hẹn giờ","Lòng nồi chống dính, tháo rửa được"], price:1490000, old:1990000, badge:"Giảm giá demo", rating:4.7, sold:175, isNew:false, compat:"Không cần kết nối smart home", icon:"fryer"},
+ {id:9, name:"Máy lọc không khí HEPA", cat:"giadung", catLabel:"Gia dụng điện tử", benefit:"Lọc bụi mịn, khử mùi, không khí trong lành hơn.", specs:["Lọc HEPA nhiều lớp (demo)","Hiển thị chất lượng không khí","Chế độ ngủ êm, hẹn giờ"], price:2490000, old:3190000, badge:"Bán chạy", rating:4.9, sold:73, isNew:false, compat:"Google Home, Alexa (demo)", icon:"purifier"},
+ {id:10, name:"Quạt tháp điều hòa không khí", cat:"giadung", catLabel:"Gia dụng điện tử", benefit:"Gió mát êm, xoay rộng, tiết kiệm diện tích.", specs:["3 tốc độ gió, chế độ ngủ","Xoay 90°, điều khiển từ xa","Thiết kế tháp gọn, an toàn cho trẻ"], price:1790000, old:2290000, badge:"Mới", rating:4.6, sold:41, isNew:true, compat:"Không cần kết nối smart home", icon:"fan"},
+ {id:11, name:"Ấm siêu tốc giữ nhiệt", cat:"giadung", catLabel:"Gia dụng điện tử", benefit:"Đun sôi nhanh, giữ nhiệt lâu, an toàn tự ngắt.", specs:["Đun sôi nhanh (demo)","Giữ nhiệt, tự ngắt khi cạn nước","Thân ấm 2 lớp chống bỏng"], price:499000, old:690000, badge:"Giảm giá demo", rating:4.5, sold:230, isNew:false, compat:"Không cần kết nối smart home", icon:"kettle"},
+ {id:12, name:"Bếp từ đôi", cat:"giadung", catLabel:"Gia dụng điện tử", benefit:"Nấu nhanh, tiết kiệm điện, mặt kính dễ lau chùi.", specs:["2 vùng nấu độc lập","9 mức công suất, hẹn giờ","Khóa trẻ em, chống tràn (demo)"], price:3990000, old:4990000, badge:"Bán chạy", rating:4.8, sold:52, isNew:false, compat:"Không cần kết nối smart home", icon:"cooktop"}
+];
+const grid = document.getElementById("product-grid");
+const countEl = document.getElementById("result-count");
+const emptyEl = document.getElementById("empty-state");
+let state = { filter:"all", query:"", sort:"featured" };
+function stars(r){
+  let s = "";
+  for(let i=1;i<=5;i++){ const filled=i<=Math.round(r);
+    s += '<svg width="15" height="15" viewBox="0 0 24 24" class="inline-block align-[-2px]" aria-hidden="true" fill="'+(filled?"#FACC15":"none")+'" stroke="#FACC15" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2.5l2.9 5.9 6.6 1-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-1L12 2.5Z"/></svg>'; }
+  return s;
+}
+function badgeClass(b){ return b==="Bán chạy" ? "bg-[#22C55E] text-[#0F172A]" : b==="Mới" ? "bg-sky-400 text-[#0F172A]" : "bg-amber-400 text-[#0F172A]"; }
+function cardHTML(p){
+  return '<article class="card overflow-hidden flex flex-col reveal visible" data-id="'+p.id+'">'
+  +'<div class="product-visual h-44 flex items-center justify-center relative">'+icon(p.icon,72)
+  +'<span class="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full '+badgeClass(p.badge)+'">'+p.badge+'</span>'
+  +'<span class="absolute top-3 right-3 text-xs font-bold bg-amber-400/20 text-amber-300 px-2 py-1 rounded-full">Giá demo</span></div>'
+  +'<div class="p-5 flex flex-col flex-1">'
+  +'<p class="text-xs font-bold tracking-wider uppercase text-[#22C55E]">'+p.catLabel+'</p>'
+  +'<h3 class="mt-1.5 font-bold text-lg leading-snug">'+p.name+'</h3>'
+  +'<p class="mt-1.5 text-sm text-[#94A3B8] leading-relaxed flex-1">'+p.benefit+'</p>'
+  +'<p class="mt-3 text-sm" aria-label="Đánh giá demo '+p.rating+' trên 5">'+stars(p.rating)+' <span class="text-[#94A3B8]">'+p.rating+' · '+p.sold+' đã bán (demo)</span></p>'
+  +'<p class="mt-3"><span class="text-xl font-extrabold text-[#22C55E]">'+fmt(p.price)+'</span> <span class="text-sm text-[#94A3B8] line-through">'+fmt(p.old)+'</span></p>'
+  +'<div class="mt-4 flex gap-2"><a class="btn-primary flex-1 !px-3 text-sm" href="'+FB+'" target="_blank" rel="noopener">Đặt qua Facebook</a>'
+  +'<button class="btn-secondary !px-3 text-sm" data-detail="'+p.id+'" aria-label="Xem chi tiết '+p.name+'">Xem chi tiết</button></div>'
+  +'<p class="mt-3 text-xs text-[#94A3B8]">Giá demo — inbox Facebook để báo giá chính xác.</p>'
+  +'</div></article>';
+}
+function applyFilters(){
+  let list = PRODUCTS.slice();
+  if(state.filter==="smarthome"||state.filter==="giadung") list = list.filter(p=>p.cat===state.filter);
+  if(state.filter==="bestseller") list = list.filter(p=>p.badge==="Bán chạy");
+  if(state.filter==="new") list = list.filter(p=>p.isNew);
+  if(state.query){ const q = state.query.toLowerCase(); list = list.filter(p=>(p.name+" "+p.benefit+" "+p.catLabel+" "+p.specs.join(" ")).toLowerCase().includes(q)); }
+  if(state.sort==="price-asc") list.sort((a,b)=>a.price-b.price);
+  else if(state.sort==="price-desc") list.sort((a,b)=>b.price-a.price);
+  else if(state.sort==="rating") list.sort((a,b)=>b.sold-a.sold);
+  else if(state.sort==="newest") list.sort((a,b)=>(b.isNew-a.isNew)||(b.id-a.id));
+  grid.innerHTML = list.map(cardHTML).join("");
+  countEl.textContent = list.length + " sản phẩm";
+  emptyEl.classList.toggle("hidden", list.length>0);
+}
+document.querySelectorAll("[data-filter]").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll("[data-filter]").forEach(b=>b.setAttribute("aria-pressed","false"));
+    btn.setAttribute("aria-pressed","true"); state.filter = btn.dataset.filter; applyFilters();
+  });
+});
+function syncSearch(v){ state.query = v.trim();
+  ["search-desktop","search-mobile","search-inline"].forEach(id=>{ const el=document.getElementById(id); if(el && el.value!==v) el.value=v; });
+  applyFilters();
+}
+["search-desktop","search-mobile","search-inline"].forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener("input", e=>syncSearch(e.target.value)); });
+document.getElementById("sort").addEventListener("change", e=>{ state.sort=e.target.value; applyFilters(); });
+document.querySelectorAll("[data-nav-cat]").forEach(a=>{
+  a.addEventListener("click", ()=>{
+    const cat=a.dataset.navCat; state.filter=cat;
+    document.querySelectorAll("[data-filter]").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.filter===cat)));
+    applyFilters(); document.getElementById("mobile-menu").classList.add("hidden");
+  });
+});
+/* Modal */
+const overlay=document.getElementById("modal-overlay"), modal=document.getElementById("modal"),
+  mTitle=document.getElementById("modal-title"), mBody=document.getElementById("modal-body"),
+  closeBtn=document.getElementById("modal-close");
+let lastFocus=null;
+function openModal(id){
+  const p=PRODUCTS.find(x=>x.id===Number(id)); if(!p) return;
+  lastFocus=document.activeElement;
+  mTitle.textContent=p.name;
+  mBody.innerHTML='<div class="product-visual rounded-2xl h-36 flex items-center justify-center">'+icon(p.icon,64)+'</div>'
+   +'<p class="mt-4 text-sm text-[#94A3B8]">'+p.catLabel+' · <span class="text-amber-300 font-semibold">Giá demo</span></p>'
+   +'<p class="mt-2 text-[#CBD5E1] leading-relaxed">'+p.benefit+'</p>'
+   +'<h4 class="mt-5 font-bold">Thông số nổi bật (demo)</h4><ul class="mt-2 space-y-1.5 text-sm text-[#CBD5E1]">'
+   +p.specs.map(s=>"<li>• "+s+"</li>").join("")+"</ul>"
+   +'<h4 class="mt-5 font-bold">Tương thích (demo)</h4><p class="mt-1 text-sm text-[#CBD5E1]">'+p.compat+'</p>'
+   +'<p class="mt-4 text-sm" aria-label="Đánh giá demo '+p.rating+' trên 5">'+stars(p.rating)+' <span class="text-[#94A3B8]">'+p.rating+' · '+p.sold+' đã bán (demo)</span></p>'
+   +'<p class="mt-3"><span class="text-2xl font-extrabold text-[#22C55E]">'+fmt(p.price)+'</span> <span class="text-[#94A3B8] line-through">'+fmt(p.old)+'</span></p>'
+   +'<p class="mt-2 text-xs text-[#94A3B8]">Giá demo — inbox Facebook để báo giá chính xác và xác nhận tình trạng hàng.</p>'
+   +'<div class="mt-5 flex flex-col sm:flex-row gap-2"><a class="btn-primary flex-1" href="'+FB+'" target="_blank" rel="noopener">Đặt qua Facebook</a>'
+   +'<button class="btn-secondary" id="modal-close-2">Đóng</button></div>';
+  overlay.classList.remove("hidden"); overlay.classList.add("flex");
+  document.body.style.overflow="hidden";
+  document.getElementById("modal-close-2").addEventListener("click", closeModal);
+  closeBtn.focus();
+}
+function closeModal(){
+  overlay.classList.add("hidden"); overlay.classList.remove("flex");
+  document.body.style.overflow="";
+  if(lastFocus) lastFocus.focus();
+}
+grid.addEventListener("click", e=>{ const b=e.target.closest("[data-detail]"); if(b) openModal(b.dataset.detail); });
+closeBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", e=>{ if(e.target===overlay) closeModal(); });
+document.addEventListener("keydown", e=>{
+  if(e.key==="Escape" && !overlay.classList.contains("hidden")) closeModal();
+  if(e.key==="Tab" && !overlay.classList.contains("hidden")){
+    const f=modal.querySelectorAll('a[href],button:not([disabled])'); const first=f[0], last=f[f.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  }
+});
+/* Mobile menu */
+const menuBtn=document.getElementById("menu-btn"), mobileMenu=document.getElementById("mobile-menu");
+menuBtn.addEventListener("click", ()=>{
+  const open=mobileMenu.classList.toggle("hidden");
+  menuBtn.setAttribute("aria-expanded", String(!open));
+  menuBtn.setAttribute("aria-label", open ? "Mở menu" : "Đóng menu");
+});
+mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click", ()=>{ mobileMenu.classList.add("hidden"); menuBtn.setAttribute("aria-expanded","false"); }));
+/* Scroll reveal (reduced-motion guard) */
+const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!reduced && "IntersectionObserver" in window){
+  const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("visible"); io.unobserve(en.target); } }),{threshold:.12});
+  document.querySelectorAll(".reveal:not(.visible)").forEach(el=>io.observe(el));
+}else{ document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible")); }
+/* Back to top */
+const backTop=document.getElementById("back-top");
+window.addEventListener("scroll", ()=>{
+  const show=window.scrollY>600;
+  backTop.classList.toggle("hidden", !show); backTop.classList.toggle("flex", show);
+},{passive:true});
+backTop.addEventListener("click", ()=>window.scrollTo({top:0, behavior: reduced?"auto":"smooth"}));
+applyFilters();
+</script>
+</body>
+</html>
